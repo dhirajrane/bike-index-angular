@@ -1,0 +1,14 @@
+**/*.js
+**/polyfills.ts
+wwwroot/*
+obj/*
+out/*
+tools/*
+bin/*
+node_modules/*
+package.json
+package-lock.json
+dist
+e2e/**
+karma.conf.js
+commitlint.config.js
