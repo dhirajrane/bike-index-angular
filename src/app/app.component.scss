@@ -1,0 +1,9 @@
+@import "../styles/component-includes.scss";
+
+.app {
+  color: $primary;
+  @include media-breakpoint-down(md) {
+    color: black;
+  }
+}
+
