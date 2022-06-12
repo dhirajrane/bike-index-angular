@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { BikeListData } from './bike-list-data';
+import { Component, Input } from '@angular/core';
+import { Bike } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-bike-search-list',
@@ -6,9 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./bike-search-list.component.scss']
 })
 export class BikeSearchListComponent  {
-
+  @Input() bikeData!: BikeListData;
   constructor() { }
-
-  
-
 }

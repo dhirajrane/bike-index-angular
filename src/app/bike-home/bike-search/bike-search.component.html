@@ -1,1 +1,5 @@
-<p>bike-search works!</p>
+
+<div class="container">
+  <app-bike-search-input (cityNameEntered)="onCityNameEntered($event)"></app-bike-search-input>
+  <app-bike-search-list *ngFor="let bike of bikeList" [bikeData]="bike"></app-bike-search-list>
+</div>

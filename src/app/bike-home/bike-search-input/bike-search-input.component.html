@@ -1,1 +1,12 @@
-<p>bike-search-input works!</p>
+
+<div class="container">
+  <div class="row justify-content-sm-center  input-group--box">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <input class="form-control" id="cityName" type="text" formControlName="city"
+          placeholder="Enter city name like Amsterdam">
+        <button type="submit" class="btn btn-outline-secondary btn-warning" [disabled]="!myForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

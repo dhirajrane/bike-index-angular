@@ -5,6 +5,8 @@ import { BikeHomeRoutingModule } from './bike-home-routing.module';
 import { BikeSearchComponent } from './bike-search/bike-search.component';
 import { BikeSearchInputComponent } from './bike-search-input/bike-search-input.component';
 import { BikeSearchListComponent } from './bike-search-list/bike-search-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { BikeSearchListComponent } from './bike-search-list/bike-search-list.com
   ],
   imports: [
     CommonModule,
-    BikeHomeRoutingModule
+    BikeHomeRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class BikeHomeModule { }

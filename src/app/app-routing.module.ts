@@ -5,6 +5,7 @@ const routes: Routes = [
   {
     path: "",
     children: [
+      { path: '', pathMatch: 'full', redirectTo: 'bikes-search' },
       {
         path: "bikes-search",
         loadChildren: () => import('./bike-home/bike-home.module').then(m => m.BikeHomeModule)
