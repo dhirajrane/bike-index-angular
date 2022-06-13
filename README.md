@@ -30,6 +30,7 @@
 - Loader component
 
 ## Possible Improvements
+- e2e test
 - Pagination for search result
 - Adding more filters for search result(distance, stoleness)
 - Error notification
