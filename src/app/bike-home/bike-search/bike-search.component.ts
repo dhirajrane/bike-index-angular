@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { SessionStorageStateService } from '../../shared';
 import { BikeListData } from '../bike-search-list/bike-list-data';
-import { BikeCountService } from '../services/bike-count.service';
 import { BikeListService } from '../services/bike-list.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class BikeSearchComponent  {
   noResultAvailable: boolean = false;
   loading = false;
   erroMessage: string = "";
-  constructor(private readonly bikeListService: BikeListService, private readonly router: Router, private sessionStorageStateService: SessionStorageStateService, private readonly bikeCountService: BikeCountService) { }
+  constructor(private readonly bikeListService: BikeListService, private readonly router: Router, private sessionStorageStateService: SessionStorageStateService) { }
 
   async onCityNameEntered(eventData: {cityName: string}) {
     const bikeList$ = this.bikeListService.getBikes(eventData.cityName);
