@@ -1,5 +1,6 @@
 ## BikeIndex
   This is a Angular application consuming apis from https://bikeindex.org/documentation/api_v3 
+  This application is running on https://bike-index-angular.vercel.app/ . 
 
 ## Botstrap application Locally
 - clone repository
@@ -32,7 +33,7 @@
 ## Possible Improvements
 - e2e test
 - Pagination for search result
-- Adding more filters for search result(distance, stoleness)
+- Advance search (using distance, stoleness)
 - Error notification
 - Allow user to select display style from either list or grid
 - Maintain an array of most recent searches
