@@ -1,35 +1,39 @@
-# BikeIndexAngular
+#BikeIndex
+  This is a Angular application consuming apis from https://bikeindex.org/documentation/api_v3 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+#Botstrap application Locally
+- clone repository
+- run `npm install` from local
+- run `npm run start` to start application on local server
+- application will be running on http://localhost:4200/
+- for running Unit tests run `npm run test`
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#Features Includes
+- Using latest Angular 14
+- Setup for eslint, prettier, husky and commitlint
+- migrated tests from Karma to Jest
+- seperate styles with variables ()
+- modular application (seperation of concern)
+- model structure
+- lazy loading
+- use of index.ts file
+- event delegation feature to avoid multiple binding event listeners.
+- reponsive application
 
-## Code scaffolding
+#functionl feature
+- Bike search input
+- Bike Searh result with list
+- Bike details page
+- state management using session storage
+- page not found component
+- Loader component
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-## TODO
-- Pagination for search result list
-- Introduce spinner loading
-- Check for unused dependencies
+## Possible Improvements
+- Pagination for search result
+- Adding more filters for search result(distance, stoleness)
 - Error notification
+- Allow user to select display style from either list or grid
+- Maintain an array of most recent searches
 
 
