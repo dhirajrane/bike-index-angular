@@ -15,18 +15,19 @@ export class BikeSearchComponent  {
   bikeList!: BikeListData[];
   bikeCount!: number;
   noResultAvailable: boolean = false;
-  loading: boolean = false;
+  loading = false;
   constructor(private readonly bikeListService: BikeListService, private readonly router: Router, private sessionStorageStateService: SessionStorageStateService, private readonly bikeCountService: BikeCountService) { }
 
   async onCityNameEntered(eventData: {cityName: string}) {
-    this.loading = true;
     const bikeList$ = this.bikeListService.getBikes(eventData.cityName);
+    this.loading = true;
     this.bikeList = await firstValueFrom(bikeList$);
    
-    const bikeCount$ = this.bikeCountService.getBikeCount(eventData.cityName);
-    this.bikeCount = await firstValueFrom(bikeCount$);
+    // commenting below code because its not reliable count from
+    // const bikeCount$ = this.bikeCountService.getBikeCount(eventData.cityName);
+    // this.bikeCount = await firstValueFrom(bikeCount$);
 
-    this.noResultAvailable = this.bikeCount === 0;
+    this.noResultAvailable = this.bikeList.length === 0;
 
     this.sessionStorageStateService.saveData({cityName: eventData.cityName, currentPage: 1, totalCount: this.bikeCount});
     this.loading = false;
