@@ -5,4 +5,4 @@ export * from './bikeStolenRecord';
 export * from './bikeSearch';
 export * from './bikeDetails';
 export * from './inputModel';
-export * from './BikeCountResponse';
+export * from './bikeCountResponse';
