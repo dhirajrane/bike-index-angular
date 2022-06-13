@@ -7,5 +7,9 @@
   <div *ngIf="noResultAvailable">
     <h4>No data Available for this search</h4>
   </div>
+
+  <div *ngIf="showError" class="alert alert-danger" role="alert">
+    {{erroMessage}}
+  </div>
 </div>
 <app-loading *ngIf="loading"></app-loading>

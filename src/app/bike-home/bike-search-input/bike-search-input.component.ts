@@ -1,4 +1,4 @@
-import { SessionStorageStateService } from './../../shared/session-storage-state/session-storage-state.service';
+import { SessionStorageStateService } from './../../shared';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BikeInput } from 'src/app/shared';

@@ -14,22 +14,34 @@ import { BikeListService } from '../services/bike-list.service';
 export class BikeSearchComponent  {
   bikeList!: BikeListData[];
   bikeCount!: number;
+  showError: boolean = false;
   noResultAvailable: boolean = false;
   loading = false;
+  erroMessage: string = "";
   constructor(private readonly bikeListService: BikeListService, private readonly router: Router, private sessionStorageStateService: SessionStorageStateService, private readonly bikeCountService: BikeCountService) { }
 
   async onCityNameEntered(eventData: {cityName: string}) {
     const bikeList$ = this.bikeListService.getBikes(eventData.cityName);
     this.loading = true;
-    this.bikeList = await firstValueFrom(bikeList$);
-   
-    // commenting below code because its not reliable count from
-    // const bikeCount$ = this.bikeCountService.getBikeCount(eventData.cityName);
-    // this.bikeCount = await firstValueFrom(bikeCount$);
+    await firstValueFrom(bikeList$)
+      .then(data => this.bikeList = data)
+      .catch((error) => {
+        if(error) {
+          this.loading = false;
+          this.showError = true;
+          this.erroMessage = error.error.error;
+        }
+      });
 
     this.noResultAvailable = this.bikeList.length === 0;
 
-    this.sessionStorageStateService.saveData({cityName: eventData.cityName, currentPage: 1, totalCount: this.bikeCount});
+    this.sessionStorageStateService.saveData(
+      {
+        cityName: eventData.cityName, 
+        currentPage: 1, 
+        totalCount: this.bikeCount
+      }
+    );
     this.loading = false;
   }
 
