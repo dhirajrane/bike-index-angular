@@ -1,7 +1,7 @@
+@import "../../../styles/component-includes.scss";
 .header {
-  border-bottom: 3px solid #ff8749;
-  background-color: #647cff;
+  background-color: $primary;
   color: white;
-  font-size: medium;
+  font-size: x-large;
   font-weight: 600;
 }

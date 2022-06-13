@@ -1,0 +1,31 @@
+@import "../../../styles/component-includes.scss";
+
+:host {
+  .bike-details {
+      padding: 20px;
+      h4 {
+        color: $primary;
+      }
+      
+    }
+
+  .bike-details-heading {
+      padding: 20px;
+      background-color: antiquewhite;
+      .bike-details--info-title {
+        color: $primary;
+        font-weight: 600;
+      }
+    }
+    .text-bold {
+      font-weight: 600;
+    }
+
+    .bike-image {
+      padding: 20px;
+      img {
+        width: 100%;
+        max-height: 600px;
+      }
+    }
+}

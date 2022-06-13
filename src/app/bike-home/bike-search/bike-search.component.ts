@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { BikeSearchResponse } from 'src/app/shared/models';
+import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
+import { SessionStorageStateService } from 'src/app/shared';
+import { BikeCountResponse, BikeSearchResponse } from 'src/app/shared/models';
 import { BikeListData } from '../bike-search-list/bike-list-data';
+import { BikeCountService } from '../services/bike-count.service';
 import { BikeListService } from '../services/bike-list.service';
 
 @Component({
@@ -10,11 +14,24 @@ import { BikeListService } from '../services/bike-list.service';
 })
 export class BikeSearchComponent  {
   bikeList!: BikeListData[];
-  constructor(private readonly bikeListService: BikeListService) { }
+  bikeCount!: number;
+  noResultAvailable: boolean = false;
+  constructor(private readonly bikeListService: BikeListService, private readonly router: Router, private sessionStorageStateService: SessionStorageStateService, private readonly bikeCountService: BikeCountService) { }
 
-  onCityNameEntered(eventData: {cityName: string}) {
-    this.bikeListService.getBikes(eventData.cityName).subscribe((data: BikeSearchResponse) => {
-      this.bikeList = data.bikes;
-    });
+  async onCityNameEntered(eventData: {cityName: string}) {
+    const bikeList$ = this.bikeListService.getBikes(eventData.cityName);
+    this.bikeList = await firstValueFrom(bikeList$);
+   
+    const bikeCount$ = this.bikeCountService.getBikeCount(eventData.cityName);
+    this.bikeCount = await firstValueFrom(bikeCount$);
+
+    this.noResultAvailable = this.bikeCount === 0;
+
+    this.sessionStorageStateService.saveData({cityName: eventData.cityName, currentPage: 1, totalCount: this.bikeCount});
+  }
+
+  async getDetails(event: Event) {
+    const target = event.target as HTMLInputElement;
+    await this.router.navigate(['bike-details'], { queryParams: { bikeId: target.closest('.bike-block')?.id } })
   }
 }

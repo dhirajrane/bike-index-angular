@@ -1,1 +1,28 @@
-<p>bike-details works!</p>
+<div class="bike-details-heading">
+  <div class="container">
+    <h3 class="bike-details--info-title">{{bikeDetails.title || bikeDetails.manufacturer_name}}</h3>
+    <p><span class="text-bold">Stolen</span>&nbsp;{{getStolenTime()}}&nbsp;<span class="text-bold">from</span>&nbsp;{{bikeDetails.stolen_location}}</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 bike-image">
+      <img [src]="getImageUrl()">
+    </div>
+    <div class="col-md-4 bike-details">
+      <div>
+        <h4>Bike Details</h4>
+        <p><span class="text-bold">Manufacturer :</span>&nbsp;{{bikeDetails.manufacturer_name || "data not avaibale"}}</p>
+        <p><span class="text-bold">Serial :</span>&nbsp;{{bikeDetails.serial || "data not avaibale"}}</p>
+        <p><span class="text-bold">Primary Colors :</span>&nbsp;{{bikeDetails.frame_colors || "data not avaibale"}}</p>
+        <p><span class="text-bold">Model :</span>&nbsp;{{bikeDetails.frame_model || "data not avaibale"}}</p>
+        <p><span class="text-bold">Handlebar Type :</span>&nbsp;{{bikeDetails.handlebar_type_slug || "data not avaibale"}}</p>
+      </div>
+      <div *ngIf="bikeDetails.stolen_record">
+        <h4>Stolen Details</h4>
+        <p><span class="text-bold">Theft Description :</span>&nbsp;{{bikeDetails.stolen_record.theft_description || "data not avaibale"}}</p>
+        <p><span class="text-bold">Police Report Number :</span>&nbsp;{{bikeDetails.stolen_record.police_report_number || "data not avaibale"}}</p>
+      </div>
+    </div>
+  </div>
+</div>

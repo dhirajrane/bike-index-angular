@@ -1,5 +1,10 @@
 
 <div class="container">
   <app-bike-search-input (cityNameEntered)="onCityNameEntered($event)"></app-bike-search-input>
-  <app-bike-search-list *ngFor="let bike of bikeList" [bikeData]="bike"></app-bike-search-list>
+  <div #searchResultList (click)="getDetails($event)">
+    <app-bike-search-list *ngFor="let bike of bikeList" [bikeData]="bike"></app-bike-search-list>
+  </div>
+  <div *ngIf="noResultAvailable">
+    <h4>No data Available for this search</h4>
+  </div>
 </div>
