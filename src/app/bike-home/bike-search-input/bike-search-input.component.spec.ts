@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { BikeHomeModule } from '../bike-home.module';
 
 import { BikeSearchInputComponent } from './bike-search-input.component';
 
@@ -8,7 +11,7 @@ describe('BikeSearchInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BikeSearchInputComponent ]
+      imports: [ HttpClientTestingModule, BikeHomeModule, RouterTestingModule ]
     })
       .compileComponents();
 

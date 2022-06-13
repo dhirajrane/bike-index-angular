@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
-import { SessionStorageStateService } from 'src/app/shared';
-import { BikeCountResponse, BikeSearchResponse } from 'src/app/shared/models';
+import { SessionStorageStateService } from '../../shared';
 import { BikeListData } from '../bike-search-list/bike-list-data';
 import { BikeCountService } from '../services/bike-count.service';
 import { BikeListService } from '../services/bike-list.service';

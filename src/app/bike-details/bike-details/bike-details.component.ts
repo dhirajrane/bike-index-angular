@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Bike, BikeDetails } from 'src/app/shared/models';
 
@@ -7,11 +7,14 @@ import { Bike, BikeDetails } from 'src/app/shared/models';
   templateUrl: './bike-details.component.html',
   styleUrls: ['./bike-details.component.scss']
 })
-export class BikeDetailsComponent  {
-  bikeDetails: Bike;
+export class BikeDetailsComponent implements OnInit  {
+  bikeDetails!: Bike;
   constructor(private readonly route: ActivatedRoute) { 
+    
+  }
+
+  ngOnInit() {
     this.bikeDetails = (this.route.snapshot.data['bikeDetails'] as BikeDetails).bike;
-    console.log(this.bikeDetails);
   }
 
   getStolenTime() {
