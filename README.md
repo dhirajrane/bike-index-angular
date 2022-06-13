@@ -1,7 +1,7 @@
-#BikeIndex
+## BikeIndex
   This is a Angular application consuming apis from https://bikeindex.org/documentation/api_v3 
 
-#Botstrap application Locally
+## Botstrap application Locally
 - clone repository
 - run `npm install` from local
 - run `npm run start` to start application on local server
@@ -9,7 +9,7 @@
 - for running Unit tests run `npm run test`
 
 
-#Features Includes
+## Features Includes
 - Using latest Angular 14
 - Setup for eslint, prettier, husky and commitlint
 - migrated tests from Karma to Jest
@@ -21,7 +21,7 @@
 - event delegation feature to avoid multiple binding event listeners.
 - reponsive application
 
-#functionl feature
+## functionl feature
 - Bike search input
 - Bike Searh result with list
 - Bike details page
