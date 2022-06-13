@@ -13,6 +13,11 @@ const routes: Routes = [
       {
         path: "bike-details",
         loadChildren: () => import('./bike-details/bike-details.module').then(m => m.BikeDetailsModule)
+      },
+      {
+        path: "**", 
+        pathMatch: "full", 
+        loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
       }
     ]
   }

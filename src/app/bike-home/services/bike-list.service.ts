@@ -10,8 +10,8 @@ export class BikeListService {
   constructor(private httpClient: HttpClient) { }
 
   getBikes(cityName: string):Observable<Bike[]> {
-    const url = `https://bikeindex.org/api/v3/search?page=1&per_page=25&location=${cityName.toLowerCase()}&distance=10&stolenness=proximity`;
-    
+    const url = `https://bikeindex.org/api/v3/search?page=1&per_page=10&location=${cityName.toLowerCase()}&distance=10&stolenness=proximity`;
+
     return this.httpClient.get<BikeSearchResponse>(url).pipe(map(resposne => resposne.bikes));
   } 
 }
