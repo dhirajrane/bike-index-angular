@@ -4,7 +4,7 @@
 
 ## Botstrap application Locally
 - clone repository
-- run `npm install` from local
+- run `npm install` from root
 - run `npm run start` to start application on local server
 - application will be running on http://localhost:4200/
 - for running Unit tests run `npm run test`
